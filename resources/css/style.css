@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box
+}
+
+#title {
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 2em;
+}
+
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 0px;
+}
+
+#unitedlogo {
+    margin-left: 6em;
+    margin-top: 9px;
+}
+
+#nav {
+    background: #6050dc;
+    border-radius: 0px;
+    box-shadow: inherit;
+}
+
+#tabs {
+    float: right;
+}
+
+#subjectTitle {
+    padding: 0px;
+}
