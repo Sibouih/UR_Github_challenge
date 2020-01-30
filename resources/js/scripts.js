@@ -10,13 +10,18 @@ const loader = document.getElementById('loader')
 const Statistique = document.getElementById('Statistique')
 const trending = document.getElementById('trending')
 
+//Getting the canva element to show statistiques
+const chart = document.getElementById('statChart')
 app.appendChild(container)
 var reposButton
+var bntPagination
+app.appendChild(Pagination)
 var LanguagesStatistique = []
 
 //Needed variables
 var allRepos = [] //this array contain all languages (json format)
 var allReposLanguages = [] //this array contains all languages
+var FilteredLanguages = [] //this array contains FilteredLanguages (duplicated languages are removed)
 
 window.onload = function() {
     GetAllRepos() //call all Repos
@@ -25,9 +30,10 @@ window.onload = function() {
 //Needed variables
 async function GetAllRepos() {
     container.innerHTML = ''
+    Pagination.innerHTML = ''
     var request = new XMLHttpRequest();
     loader.style.display = 'flex'
-    await request.open('GET', 'https://api.github.com/search/repositories?q=page=0&per_page=100&sort=stars&order=desc', true);
+    var res = await request.open('GET', 'https://api.github.com/search/repositories?q=page=0&per_page=100&sort=stars&order=desc', true);
     request.onload = function() {
 
         //Begin accessing JSON data
@@ -46,4 +52,14 @@ async function GetAllRepos() {
         getRepos(0)
     }
     request.send();
+}
+
+//Function to filter duplicated repos
+function getFilteredLanguages(Repos) {
+    FilteredLanguages = []
+
+    function filterDup(value, index, self) {
+        return self.indexOf(value) === index;
+    }
+    FilteredLanguages = Repos.filter(filterDup);
 }
