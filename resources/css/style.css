@@ -57,6 +57,7 @@
 #icon {
     font-family: unset;
     color: white;
+    font-size: 16px;
 }
 
 #card_button {
@@ -64,4 +65,35 @@
     width: 100%;
     margin: 0 auto;
     border: none;
+}
+
+#chart {
+    width: 60%;
+    height: 50%;
+    margin: 2em auto;
+}
+
+#flex-card {
+    background: #fbfbfb;
+    margin: 0.8em;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+}
+
+#repoDesc {
+    font-family: roboto;
+    font-size: 1em;
+    font-weight: 400;
+}
+
+#repoTitle {
+    font-weight: 400;
+    font-size: 1.3em;
+    color: #0366d6;
+}
+
+#nbrRep {
+    margin: 3px 0 0 0;
+    font-weight: 400;
+    font-size: 1.3em;
 }
