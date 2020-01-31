@@ -171,3 +171,80 @@ function showLanguagesRepos(name, repos) {
         container.appendChild(col)
 
     })
+
+}
+
+function clickRepo(p) {
+    getRepositorieByLanguage(p);
+}
+
+//Assistant function to get repositorie by language  
+function getRepositorieByLanguage(language) {
+    container.innerHTML = ''
+    var repos = []
+    allRepos.forEach(l => {
+        if (l.language != null && (l.language).toUpperCase() == (language.name).toUpperCase()) {
+            repos.push(l)
+        }
+    });
+    showLanguagesRepos(language.name, repos)
+}
+
+function onNbrReposByLanguage(p) {
+    NmbrReposByLanguages = []
+    p.forEach(l => {
+        var nmb = 0
+        allRepos.forEach(d => {
+            if (d.language != null && (d.language).toUpperCase() == l.toUpperCase()) {
+                nmb++
+            }
+        })
+        NbrReposByLanguages.push(nmb)
+    });
+    onStatistiqueShow()
+}
+
+//Display repos number of every language in a bar chart
+function onStatistiqueShow() {
+    chartDiv.style.display = "block"
+    trending.classList.remove('active')
+    Statistique.classList.add('active')
+    app.innerHTML = ''
+    container.innerHTML = ''
+    app.appendChild(container);
+    const chart1 = document.getElementById('statChart')
+    chart1.style.display = "block"
+    var ctx = document.getElementById('statChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: FilteredLanguages,
+            datasets: [{
+                label: 'Repositories',
+                backgroundColor: '#47464e',
+                borderColor: 'rgb(255, 99, 132)',
+                data: NbrReposByLanguages
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+}
+
+//Nav button to show statistics about framework popularity
+Statistique.addEventListener('click', e => {
+    onNbrReposByLanguage(FilteredLanguages)
+});
+
+//Nav button to show repositories
+trending.addEventListener('click', e => {
+    app.innerHTML = ''
+    container.innerHTML = ''
+    app.appendChild(container);
+    Statistique.classList.remove('active')
+    trending.classList.add('active')
+    chart.style.display = "none"
+    getAllRepos()
+})
