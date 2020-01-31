@@ -2,6 +2,7 @@
 
 ![](https://www.imageupload.net/upload-image/2020/01/31/trending83a5b139a80caf72.png)
 
+
 > Develop a REST microservice that list the languages used by the 100 trending public repos on GitHub.
 > For every language, you need to calculate the attributes below :
 > - Number of repos using this language
@@ -19,6 +20,12 @@ I have deployed the project on Heroku : https://trending-github-repositories.her
 ![](https://www.imageupload.net/upload-image/2020/01/31/screen1.png)
 ![](https://www.imageupload.net/upload-image/2020/01/31/screen2.png)
 ![](https://www.imageupload.net/upload-image/2020/01/31/screen3.png)
+
+#### Built With
+```sh
+Material kit library by Creative Tim
+Github search api : https://api.github.com/search/repositories?q=page=0&per_page=100&sort=stars&order=desc
+```
 
 #### Author
 * [lahcen sibouih](https://www.linkedin.com/in/lahcen-sibouih/)
