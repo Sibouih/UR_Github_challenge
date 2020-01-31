@@ -83,7 +83,7 @@ function displayRepos() {
         h3.textContent = l;
         const repos = document.createElement('button');
         const icon = document.createElement('span')
-        icon.textContent = 'See repository'
+        icon.textContent = 'See repositories'
         icon.style.textTransform = "lowercase";
         icon.setAttribute('id', 'icon');
         repos.appendChild(icon)

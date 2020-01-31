@@ -6,6 +6,23 @@
     font-family: Montserrat, sans-serif;
     font-weight: 700;
     font-size: 2em;
+    opacity: 1;
+    animation-name: bottomFadeOut;
+    animation-duration: 3s;
+}
+
+@keyframes bottomFadeOut {
+    0% {
+        bottom: -5rem;
+        opacity: 0;
+    }
+    75% {
+        bottom: -3rem;
+        opacity: 1;
+    }
+    100% {
+        bottom: 0rem;
+    }
 }
 
 #card_elmnt_title {
